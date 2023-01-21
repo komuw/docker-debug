@@ -14,6 +14,7 @@ RUN apt -y update && \
     screen \
     telnet \
     curl \
+    wget \
     iputils-ping \
     dnsutils \
     psmisc \
@@ -28,3 +29,4 @@ RUN apt -y update && \
     rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 CMD ["/bin/bash"]
+
