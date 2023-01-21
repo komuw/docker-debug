@@ -11,6 +11,8 @@ FROM ubuntu:22.04
 
 WORKDIR /app
 
+COPY mongo.sh .
+
 RUN apt -y update && \
     apt -y install \
     lsof \
@@ -31,13 +33,9 @@ RUN apt -y update && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /var/lib/{apt,dpkg,cache,log}/
 
-# Taken from; https://www.mongodb.com/try/download/bi-connector
-RUN wget -nc --output-document=/tmp/mongo_tools.deb "https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb" && \
-    wget -nc --output-document=/tmp/mongo_shell.deb "https://downloads.mongodb.com/compass/mongodb-mongosh_1.6.2_amd64.deb" && \
-    dpkg -i /tmp/mongo_tools.deb && \
-    dpkg -i /tmp/mongo_shell.deb && \
-    rm -rf /tmp/mongo_tools.deb && \
-    rm -rf /tmp/mongo_shell.deb
+# The arg is provided by docker:
+# https://docs.docker.com/engine/reference/builder/#automatic-platform-args-in-the-global-scope
+RUN bash /app/mongo.sh $TARGETPLATFORM
 
 CMD ["/bin/bash"]
 
