@@ -30,8 +30,11 @@ RUN apt -y update && \
 
 # Taken from; https://www.mongodb.com/try/download/bi-connector
 RUN wget -nc --output-document=/tmp/mongo_tools.deb "https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb" && \
+    wget -nc --output-document=/tmp/mongo_shell.deb "https://downloads.mongodb.com/compass/mongodb-mongosh_1.6.2_amd64.deb" && \
     dpkg -i /tmp/mongo_tools.deb && \
-    rm -rf /tmp/mongo_tools.deb
+    dpkg -i /tmp/mongo_shell.deb && \
+    rm -rf /tmp/mongo_tools.deb && \
+    rm -rf /tmp/mongo_shell.deb
 
 CMD ["/bin/bash"]
 
