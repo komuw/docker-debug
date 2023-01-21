@@ -1,5 +1,8 @@
 FROM ubuntu:22.04
 
+# docker buildx create --use --name multi-arch-builder
+# docker buildx build --platform linux/amd64,linux/arm64 -t komuw/debug:latest .
+#
 # docker build -t komuw/debug:latest .
 # docker \
 #     run \
