@@ -14,6 +14,7 @@ RUN apt -y update && \
     screen \
     telnet \
     curl \
+    wget \
     iputils-ping \
     dnsutils \
     psmisc \
@@ -27,4 +28,10 @@ RUN apt -y update && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /var/lib/{apt,dpkg,cache,log}/
 
+# Taken from; https://www.mongodb.com/try/download/bi-connector
+RUN wget -nc --output-document=/tmp/mongo_tools.deb "https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb" && \
+    dpkg -i /tmp/mongo_tools.deb && \
+    rm -rf /tmp/mongo_tools.deb
+
 CMD ["/bin/bash"]
+
