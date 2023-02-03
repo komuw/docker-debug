@@ -12,6 +12,14 @@ arch="$1"
 # - https://www.mongodb.com/try/download/database-tools
 
 # The list of installed tools is: https://www.mongodb.com/docs/database-tools/
+# - mongodump     - export of the contents of a mongo db.
+# - mongorestore  - restores data from a mongodump to db.
+# - bsondump      - convert bson dump files to json.
+# - mongoimport   - imports content from an extended JSON, CSV, or TSV export file.
+# - mongoexport   - produces a JSON, CSV, export 
+# - mongostat     - provide a quick overview of the stus of a running mongo db instance.
+# - mongotop      - provide an overview of the time a mongo instance spends reading and writing data.
+# - mongofiles    - supports manipulating files stored in your MongoDB instance in GridFS objects.
 
 mongo_tools_url="https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb"
 mongo_shell_url="https://downloads.mongodb.com/compass/mongodb-mongosh_1.6.2_amd64.deb"
