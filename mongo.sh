@@ -11,6 +11,8 @@ arch="$1"
 # - https://www.mongodb.com/try/download/shell
 # - https://www.mongodb.com/try/download/database-tools
 
+# The list of installed tools is: https://www.mongodb.com/docs/database-tools/
+
 mongo_tools_url="https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb"
 mongo_shell_url="https://downloads.mongodb.com/compass/mongodb-mongosh_1.6.2_amd64.deb"
 if [[ $arch == *"arm64"* ]]; then
