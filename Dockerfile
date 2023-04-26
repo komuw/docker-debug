@@ -12,6 +12,8 @@ LABEL repo="github.com/komuw/docker-debug"
 
 WORKDIR /app
 
+COPY mongo.sh .
+
 # The arg is provided by docker:
 # https://docs.docker.com/engine/reference/builder/#automatic-platform-args-in-the-global-scope
 ARG TARGETPLATFORM
@@ -36,6 +38,8 @@ RUN printf "\n\n\t The target platform is: $TARGETPLATFORM \n\n" && \
     apt -y autoclean && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /var/lib/{apt,dpkg,cache,log}/
+
+RUN bash /app/mongo.sh $TARGETPLATFORM
 
 CMD ["/bin/bash"]
 
