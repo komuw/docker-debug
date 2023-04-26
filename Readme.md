@@ -11,5 +11,3 @@ docker \
     -it \
     komuw/debug:latest
 ```
-
-For an image with what `latest` has plus mongo tools use; `komuw/debug:mongo`
