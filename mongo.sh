@@ -38,3 +38,19 @@ dpkg -i /tmp/mongo_tools.deb
 dpkg -i /tmp/mongo_shell.deb
 rm -rf /tmp/mongo_tools.deb
 rm -rf /tmp/mongo_shell.deb
+
+# add aliases
+echo "
+alias mongo='/usr/bin/mongosh'
+alias mongosh='/usr/bin/mongosh'
+alias mongodump='/usr/bin/mongodump'
+alias mongoexport='/usr/bin/mongoexport'
+alias mongofiles='/usr/bin/mongofiles'
+alias mongoimport='/usr/bin/mongoimport'
+alias mongorestore='/usr/bin/mongorestore'
+alias mongostat='/usr/bin/mongostat'
+alias mongotop='/usr/bin/mongotop'
+" >> ~/.bash_aliases
+
+. ~/.bash_aliases
+source ~/.bash_aliases
