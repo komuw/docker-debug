@@ -21,6 +21,7 @@ ARG TARGETPLATFORM
 RUN printf "\n\n\t The target platform is: $TARGETPLATFORM \n\n" && \
     apt -y update && \
     apt -y install \
+    nano \
     lsof \
     screen \
     telnet \
@@ -32,7 +33,8 @@ RUN printf "\n\n\t The target platform is: $TARGETPLATFORM \n\n" && \
     net-tools \
     tree \
     strace \
-    wireshark && \
+    tcpdump \
+    tshark && \
     apt -y autoremove && \
     apt -y clean && \
     apt -y autoclean && \
@@ -42,4 +44,3 @@ RUN printf "\n\n\t The target platform is: $TARGETPLATFORM \n\n" && \
 RUN bash /app/mongo.sh $TARGETPLATFORM
 
 CMD ["/bin/bash"]
-
