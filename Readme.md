@@ -11,3 +11,5 @@ docker \
     -it \
     komuw/debug:latest
 ```
+
+Also see https://github.com/nicolaka/netshoot
