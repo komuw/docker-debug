@@ -34,6 +34,7 @@ RUN printf "\n\n\t The target platform is: $TARGETPLATFORM \n\n" && \
     tree \
     strace \
     tcpdump \
+    redis-tools \
     tshark && \
     apt -y autoremove && \
     apt -y clean && \
