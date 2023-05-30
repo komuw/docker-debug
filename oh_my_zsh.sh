@@ -3,6 +3,8 @@ shopt -s nullglob globstar
 set -x # have bash print command been ran
 set -e # fail if any command fails
 
+export DEBIAN_FRONTEND=noninteractive
+
 MY_NAME=$(whoami)
 
 git clone https://github.com/robbyrussell/oh-my-zsh.git /home/$MY_NAME/.oh-my-zsh

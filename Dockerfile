@@ -20,6 +20,7 @@ COPY oh_my_zsh.sh .
 ARG TARGETPLATFORM
 
 RUN printf "\n\n\t The target platform is: $TARGETPLATFORM \n\n" && \
+    export DEBIAN_FRONTEND=noninteractive && \
     apt -y update && \
     apt -y install \
     nano \
