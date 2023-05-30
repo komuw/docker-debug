@@ -13,6 +13,7 @@ LABEL repo="github.com/komuw/docker-debug"
 WORKDIR /app
 
 COPY mongo.sh .
+COPY oh_my_zsh.sh .
 
 # The arg is provided by docker:
 # https://docs.docker.com/engine/reference/builder/#automatic-platform-args-in-the-global-scope
@@ -35,13 +36,17 @@ RUN printf "\n\n\t The target platform is: $TARGETPLATFORM \n\n" && \
     strace \
     tcpdump \
     redis-tools \
-    tshark && \
+    tshark \
+    git \
+    zsh && \
     apt -y autoremove && \
     apt -y clean && \
     apt -y autoclean && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /var/lib/{apt,dpkg,cache,log}/
 
-RUN bash /app/mongo.sh $TARGETPLATFORM
+RUN bash /app/mongo.sh $TARGETPLATFORM && \
+    bash /app/oh_my_zsh.sh && \
+    chsh -s $(which zsh)
 
-CMD ["/bin/bash"]
+CMD ["/usr/bin/zsh"]
