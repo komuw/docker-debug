@@ -5,13 +5,11 @@ set -e # fail if any command fails
 
 export DEBIAN_FRONTEND=noninteractive
 
-MY_NAME=$(whoami)
+git clone https://github.com/robbyrussell/oh-my-zsh.git /root/.oh-my-zsh
+git clone https://github.com/zsh-users/zsh-autosuggestions /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-completions /root/.oh-my-zsh/custom/plugins/zsh-completions
 
-git clone https://github.com/robbyrussell/oh-my-zsh.git /home/$MY_NAME/.oh-my-zsh
-git clone https://github.com/zsh-users/zsh-autosuggestions /home/$MY_NAME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-completions /home/$MY_NAME/.oh-my-zsh/custom/plugins/zsh-completions
-
-echo 'export ZSH="/home/$MY_NAME/.oh-my-zsh"
+echo 'export ZSH="/root/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 HIST_STAMPS="dd/mm/yyyy"
 plugins=(
@@ -21,16 +19,17 @@ zsh-completions
 )
 source $ZSH/oh-my-zsh.sh
 export PATH
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)' >>  /home/$MY_NAME/.zshrc
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+export SHELL=/usr/bin/zsh' >>  /root/.zshrc
 
-chown -R $MY_NAME:$MY_NAME /home/$MY_NAME/.zshrc
-chown -R $MY_NAME:$MY_NAME /home/$MY_NAME/.oh-my-zsh
+chown -R root:root /root/.zshrc
+chown -R root:root /root/.oh-my-zsh
 
 chsh -s $(which zsh)
 
 # seed history
-echo -n > /home/$MY_NAME/.zsh_history
-echo -n > /home/$MY_NAME/.bash_history
+echo -n > /root/.zsh_history
+echo -n > /root/.bash_history
 SEED='grep -rsIin "hello" /tmp
 ls -lsha ~/
 dpkg --get-selections | grep -v deinstall #list all installed packages/programs
@@ -47,5 +46,5 @@ netstat -tunapl | grep -i 'listen'
 lsof -i tcp | grep -i 'listen'
 ss --listening --processes --tcp
 telnet example.com 80'
-echo "$SEED" >> /home/$MY_NAME/.zsh_history
-echo "$SEED" >> /home/$MY_NAME/.bash_history
+echo "$SEED" >> /root/.zsh_history
+echo "$SEED" >> /root/.bash_history

@@ -48,6 +48,8 @@ RUN printf "\n\n\t The target platform is: $TARGETPLATFORM \n\n" && \
 
 RUN bash /app/mongo.sh $TARGETPLATFORM && \
     bash /app/oh_my_zsh.sh && \
-    chsh -s $(which zsh)
+    export SHELL=/usr/bin/zsh && \
+    chsh -s $(which zsh) && \
+    export SHELL=/usr/bin/zsh
 
 CMD ["/usr/bin/zsh"]
