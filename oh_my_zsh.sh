@@ -45,6 +45,7 @@ screen -r 2049672 # ctrl-A-D
 netstat -tunapl | grep -i 'listen'
 lsof -i tcp | grep -i 'listen'
 ss --listening --processes --tcp
-telnet example.com 80'
+telnet example.com 80
+mtr -r -w --show-ips example.com'
 echo "$SEED" >> /root/.zsh_history
 echo "$SEED" >> /root/.bash_history
