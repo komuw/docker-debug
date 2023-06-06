@@ -27,6 +27,7 @@ RUN printf "\n\n\t The target platform is: $TARGETPLATFORM \n\n" && \
     lsof \
     screen \
     telnet \
+    mtr \
     curl \
     wget \
     iputils-ping \
