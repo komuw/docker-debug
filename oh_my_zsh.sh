@@ -18,6 +18,11 @@ zsh-autosuggestions
 zsh-completions
 )
 source $ZSH/oh-my-zsh.sh
+{ # try
+  source ~/.bash_aliases
+} || { # catch
+  echo -n ""
+}
 export PATH
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export SHELL=/usr/bin/zsh' >>  /root/.zshrc

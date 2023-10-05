@@ -10,6 +10,13 @@ docker \
     run \
     -it \
     komuw/debug:latest
+
+kubectl run \
+  --namespace=some-ns \
+  --labels="app=tester-pod,env=dev" \
+  tester-pod \
+  --rm -ti \
+  --image komuw/debug:latest
 ```
 
 Also see https://github.com/nicolaka/netshoot

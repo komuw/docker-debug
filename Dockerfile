@@ -25,6 +25,7 @@ RUN printf "\n\n\t The target platform is: $TARGETPLATFORM \n\n" && \
     apt -y install \
     nano \
     lsof \
+    iproute2 \
     screen \
     telnet \
     mtr \
