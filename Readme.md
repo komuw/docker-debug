@@ -20,7 +20,8 @@ kubectl \
   --rm -it \
   --image komuw/debug:latest
 
-# run a debugging pod in the context of another pod. it is like a better `kubectl run` or `kubectl exec`
+# run a debugging pod in the context of another pod.
+# it is like a better `kubectl run` or `kubectl exec`
 kubectl \
   debug \
   --namespace=someNS \
