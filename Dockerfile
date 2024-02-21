@@ -41,6 +41,7 @@ RUN printf "\n\n\t The target platform is: $TARGETPLATFORM \n\n" && \
     redis-tools \
     tshark \
     git \
+    jq \
     zsh && \
     apt -y autoremove && \
     apt -y clean && \
