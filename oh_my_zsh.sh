@@ -51,6 +51,8 @@ netstat -tunapl | grep -i 'listen'
 lsof -i tcp | grep -i 'listen'
 ss --listening --processes --tcp
 telnet example.com 80
-mtr -r -w --show-ips example.com'
+mtr -r -w --show-ips example.com
+go mod init cool
+goimports -w .;gofumpt -extra -w .;go mod tidy;go run ./...'
 echo "$SEED" >> /root/.zsh_history
 echo "$SEED" >> /root/.bash_history

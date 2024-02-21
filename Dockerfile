@@ -14,6 +14,7 @@ WORKDIR /app
 
 COPY mongo.sh .
 COPY oh_my_zsh.sh .
+COPY golang.sh .
 
 # The arg is provided by docker:
 # https://docs.docker.com/engine/reference/builder/#automatic-platform-args-in-the-global-scope
@@ -50,6 +51,7 @@ RUN printf "\n\n\t The target platform is: $TARGETPLATFORM \n\n" && \
     rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 RUN bash /app/mongo.sh $TARGETPLATFORM && \
+    bash /app/golang.sh $TARGETPLATFORM && \
     bash /app/oh_my_zsh.sh && \
     export SHELL=/usr/bin/zsh && \
     chsh -s $(which zsh) && \
